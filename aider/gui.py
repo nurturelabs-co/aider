@@ -436,7 +436,7 @@ class GUI:
                 self.state.last_aider_commit_hash = self.coder.last_aider_commit_hash
 
             self.state.messages.append(edit)
-            self.show_edit_info(edit)
+            # self.show_edit_info(edit)
 
         # re-render the UI for the non-prompt_pending state
         st.rerun()
