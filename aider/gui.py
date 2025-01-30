@@ -83,8 +83,8 @@ def get_coder():
     # coder.io = io # this breaks the input_history
     coder.commands.io = io
 
-    for line in coder.get_announcements():
-        coder.io.tool_output(line)
+    # for line in coder.get_announcements():
+    #     coder.io.tool_output(line)
 
     return coder
 
@@ -96,10 +96,10 @@ class GUI:
     recent_msgs_empty = None
     web_content_empty = None
 
-    def announce(self):
-        lines = self.coder.get_announcements()
-        lines = "  \n".join(lines)
-        return lines
+    # def announce(self):
+    #     lines = self.coder.get_announcements()
+    #     lines = "  \n".join(lines)
+    #     return lines
 
     def show_edit_info(self, edit):
         commit_hash = edit.get("commit_hash")
@@ -320,8 +320,9 @@ class GUI:
                     st.dict(msg)
 
     def initialize_state(self):
+        print("Initializing state $$$$$$$$$$$$$$$$$$$")
         messages = [
-            dict(role="info", content=self.announce()),
+            # dict(role="info", content=self.announce()),
             dict(role="assistant", content="How can I help you?"),
         ]
 
@@ -363,7 +364,7 @@ class GUI:
         self.initialize_state()
 
         self.do_messages_container()
-        self.do_sidebar()
+        # self.do_sidebar()
 
         user_inp = st.chat_input("Say something")
         if user_inp:
