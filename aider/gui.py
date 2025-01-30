@@ -433,13 +433,6 @@ class GUI:
             if self.state.last_aider_commit_hash != self.coder.last_aider_commit_hash:
                 edit["commit_hash"] = self.coder.last_aider_commit_hash
                 edit["commit_message"] = self.coder.last_aider_commit_message
-                commits = f"{self.coder.last_aider_commit_hash}~1"
-                diff = self.coder.repo.diff_commits(
-                    self.coder.pretty,
-                    commits,
-                    self.coder.last_aider_commit_hash,
-                )
-                edit["diff"] = diff
                 self.state.last_aider_commit_hash = self.coder.last_aider_commit_hash
 
             self.state.messages.append(edit)
