@@ -241,6 +241,8 @@ def launch_gui(args):
 
     # Necessary so streamlit does not prompt the user for an email address.
     write_streamlit_credentials()
+    
+    print("Opening Streamlit from the latest version..........")
 
     target = gui.__file__
 
