@@ -426,17 +426,18 @@ class GUI:
                     prompt = self.coder.reflected_message
 
         with self.messages:
-            edit = dict(
-                role="edit",
-                fnames=self.coder.aider_edited_files,
-            )
-            if self.state.last_aider_commit_hash != self.coder.last_aider_commit_hash:
-                edit["commit_hash"] = self.coder.last_aider_commit_hash
-                edit["commit_message"] = self.coder.last_aider_commit_message
-                self.state.last_aider_commit_hash = self.coder.last_aider_commit_hash
+            if self.coder.aider_edited_files or (self.state.last_aider_commit_hash != self.coder.last_aider_commit_hash):
+                edit = dict(
+                    role="edit",
+                    fnames=self.coder.aider_edited_files,
+                )
+                if self.state.last_aider_commit_hash != self.coder.last_aider_commit_hash:
+                    edit["commit_hash"] = self.coder.last_aider_commit_hash
+                    edit["commit_message"] = self.coder.last_aider_commit_message
+                    self.state.last_aider_commit_hash = self.coder.last_aider_commit_hash
 
-            self.state.messages.append(edit)
-            # self.show_edit_info(edit)
+                self.state.messages.append(edit)
+                self.show_edit_info(edit)
 
         # re-render the UI for the non-prompt_pending state
         st.rerun()
