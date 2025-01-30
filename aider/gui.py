@@ -124,16 +124,10 @@ class GUI:
             fnames = ", ".join(fnames)
             res += f"Applied edits to {fnames}."
 
-        if diff:
-            with st.expander(res):
-                st.code(diff, language="diff")
-                if show_undo:
-                    self.add_undo(commit_hash)
-        else:
-            with st.container(border=True):
-                st.write(res)
-                if show_undo:
-                    self.add_undo(commit_hash)
+        with st.container(border=True):
+            st.write(res)
+            if show_undo:
+                self.add_undo(commit_hash)
 
     def add_undo(self, commit_hash):
         if self.last_undo_empty:
