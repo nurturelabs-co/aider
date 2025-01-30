@@ -323,7 +323,7 @@ class GUI:
         print("Initializing state $$$$$$$$$$$$$$$$$$$")
         messages = [
             # dict(role="info", content=self.announce()),
-            dict(role="assistant", content="How can I help you?"),
+            dict(role="assistant", content="Hi! I'm ready to help you write and edit code. What would you like to work on?"),
         ]
 
         self.state.init("messages", messages)
