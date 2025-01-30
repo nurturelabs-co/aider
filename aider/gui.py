@@ -304,7 +304,8 @@ class GUI:
                 role = msg["role"]
 
                 if role == "edit":
-                    self.show_edit_info(msg)
+                    # self.show_edit_info(msg)
+                    pass
                 elif role == "info":
                     st.info(msg["content"])
                 elif role == "text":
